@@ -1,0 +1,13 @@
+.card-box {
+    border: 1px solid;
+    width: calc(25% - 12px);
+    float: left;
+    margin: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+    line-height: 10px;
+}
+
+.card-box:hover {
+    box-shadow: inset 0px 0px 7px 2px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

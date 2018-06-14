@@ -1,41 +1,63 @@
 import React, {Component} from 'react';
 import './App.css';
 import Card from './component/card/card';
-
-const serviceDescription = (service) => {
-    console.log(service);
-};
-
-const mockData = () => {
-    return [
-        {
-            title: 'Mr',
-            subTitle: 'Juanjo'
-        }, {
-            title: 'Mr',
-            subTitle: 'Pablo'
-        }, {
-            title: 'Mr',
-            subTitle: 'Fran'
-        }
-    ]
-};
-
+import ColorSelector from "./component/colorSelector/colorSelector";
+import _ from 'lodash';
+import uuid from 'uuid';
 
 class App extends Component {
+
+    constructor(props) {
+        super(props);
+        this.originalList = require('./component/mockData/mockData');
+
+        this.state = {
+            itemList: this.originalList
+        };
+    }
+
+    onColorSelected(color) {
+        let colorValue = color.target.value;
+        let filterList = _.cloneDeep(this.originalList);
+
+        let colorItems = [];
+
+        if (colorValue === 'all') {
+            colorItems = this.originalList;
+        } else {
+            colorItems =
+                filterList.filter(item => {
+                    return item.color === colorValue;
+                })
+        }
+
+        this.setState({
+            itemList: colorItems
+        });
+    };
+
     render() {
         return (
             <div className="App">
-                {mockData().map(item => {
-                    return (
-                        <Card
-                            onServiceSelected={service => serviceDescription(service)}
-                            title={item.title}
-                            subtitle={item.subTitle}/>
-                    )
-                })}
+                <div>
+                    <ColorSelector colorList={this.getColorList()}
+                                   onColorSelected={color => this.onColorSelected(color)}/>
+                </div>
+                <div>
+                    {
+                        this.state.itemList.map(item => {
+                            return (<Card key={uuid.v4()}
+                                          color={item.color}
+                                          name={item.name}/>)
+                        })
+                    }
+                </div>
             </div>
         );
+    }
+
+    getColorList() {
+        return _.uniqBy(this.originalList, 'color');
     }
 }
 

@@ -1,0 +1,44 @@
+.enable-panel .panel-heading {
+    overflow: hidden;
+    color: #2F231C;
+    background-color: transparent !important;
+    border-bottom: 1px solid #EBEFE7;
+    padding: 20px 40px 0px 40px;
+    font-weight: 600;
+    height: 100px;
+}
+
+.enable-panel button.btn.jarowa-btn.btn.btn-primary.right {
+    margin-top: 11px;
+}
+
+.enable-panel .panel-heading h4{
+    float: left;
+}
+
+
+.enable-panel .panel-footer {
+    overflow: hidden;
+    background-color: transparent !important;
+    border-bottom: 1px solid #EBEFE7;
+    padding: 30px 40px 0px 40px;
+    font-weight: 600;
+}
+
+
+.panel-footer {
+    background-color: transparent;
+    overflow: hidden;
+}
+
+
+.panel {
+    padding-bottom: 0 !important;
+    margin-bottom: 20px;
+    height: auto;
+}
+
+.enable-panel .radio+.radio, .enable-panel .checkbox+.checkbox, .enable-panel .form-group {
+    margin-top: 0px;
+    margin-bottom: 0 !important;
+}

@@ -1,11 +1,22 @@
 import React from 'react'
+import './card.css'
+import Panel from "../panel/panel";
 
 const Card = (props) => {
     return (
-        <div onClick={() => props.onServiceSelected('1')}>
-            <p className='serviceDescription'>{props.title}</p>
-            <p className='text-muted'>{props.subtitle}</p>
+        <Panel id={`Service-${props.name}-${props.id}`}
+               className='enable-panel card-content'
+               content={
+        <div className={'card-box'} style={{backgroundColor: props.color}}>
+            <div>
+                <p className='text-muted'>{props.name}</p>
+                <p className='text-muted'>{props.name}</p>
+                <p className='text-muted'>{props.name}</p>
+            </div>
         </div>
+               }
+               contentHeading={null}
+               contentFooter={null}/>
     )
 };
 
